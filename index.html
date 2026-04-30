@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Logic Grid Master</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #5C6BC0;
+      --accent:    #7C4DFF;
+      --bg:        #F4F6FF;
+      --surface:   #FFFFFF;
+      --on-bg:     #1A1C2E;
+      --muted:     #4E5080;
+      --border:    #E8EAFF;
+      --success:   #2E7D32;
+      --success-bg:#E8F5E9;
+      --warn:      #E65100;
+      --warn-bg:   #FFF3E0;
+      --radius:    12px;
+      --max-width: 800px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--on-bg);
+      line-height: 1.75;
+      padding: 0 16px 64px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1E2A7A 0%, #3D52C4 100%);
+      color: #fff;
+      text-align: center;
+      padding: 52px 24px 44px;
+      margin: 0 -16px 40px;
+    }
+    header .logo { font-size: 52px; margin-bottom: 14px; }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    header .subtitle {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      opacity: 0.82;
+    }
+    header .dev-name {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      opacity: 0.65;
+    }
+
+    /* ── Layout ── */
+    main { max-width: var(--max-width); margin: 0 auto; }
+
+    /* ── Badges ── */
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .badge-primary { background: var(--primary); color: #fff; }
+    .badge-success { background: var(--success-bg); color: var(--success); }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(92,107,192,0.07);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      font-size: 1.4rem;
+      width: 44px; height: 44px;
+      background: #EEF0FF;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card h2 { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+
+    p { margin-bottom: 12px; color: var(--muted); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--on-bg); }
+
+    /* ── Lists ── */
+    ul { list-style: none; margin: 8px 0 12px; padding: 0; }
+    ul li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 6px 0; color: var(--muted);
+      border-bottom: 1px solid var(--border); font-size: 0.95rem;
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before {
+      content: "✓"; color: var(--primary);
+      font-weight: 700; margin-top: 1px; flex-shrink: 0;
+    }
+
+    /* ── Highlight boxes ── */
+    .highlight {
+      background: #EEF0FF;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px; margin: 12px 0;
+      color: var(--on-bg); font-size: 0.93rem;
+    }
+    .highlight-warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px; margin: 12px 0;
+      color: var(--on-bg); font-size: 0.93rem;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; min-width: 480px; }
+    th {
+      background: #EEF0FF; color: var(--primary);
+      font-weight: 700; text-align: left; padding: 10px 14px;
+    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #FAFBFF; }
+
+    /* ── Permission table ── */
+    .perm-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 999px;
+      background: var(--success-bg); color: var(--success);
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, #1E2A7A 0%, #5C6BC0 100%);
+      border-radius: var(--radius); padding: 28px 32px;
+      color: #fff; margin-bottom: 20px;
+    }
+    .contact-card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .contact-card p { color: rgba(255,255,255,0.82); }
+    .contact-card a { color: #C5CAF5; text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 28px; margin-bottom: 28px;
+    }
+    .toc h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .toc ol { padding-left: 18px; }
+    .toc li { font-size: 0.88rem; padding: 3px 0; }
+    .toc a { color: var(--primary); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer { text-align: center; margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
+    footer a { color: var(--primary); }
+
+    a { color: var(--primary); }
+
+    @media (max-width: 520px) {
+      .card { padding: 20px 18px; }
+      header { padding: 36px 16px 28px; }
+      .contact-card { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="logo">🧩</div>
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Logic Grid Master — Android Application</p>
+  <p class="dev-name">Developed by 0xPriya &nbsp;·&nbsp; Independent Developer</p>
+</header>
+
+<main>
+
+  <div class="badges">
+    <span class="badge badge-primary">Last updated: April 30, 2026</span>
+    <span class="badge badge-success">✓ Google Play Compliant</span>
+    <span class="badge badge-success">✓ GDPR Aware</span>
+    <span class="badge badge-success">✓ COPPA Compliant</span>
+  </div>
+
+  <!-- ── Table of Contents ── -->
+  <div class="toc">
+    <h3>📑 Contents</h3>
+    <ol>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#data-collect">Information We Collect</a></li>
+      <li><a href="#data-use">How We Use Information</a></li>
+      <li><a href="#third-party">Third-Party Services</a></li>
+      <li><a href="#advertising">Advertising</a></li>
+      <li><a href="#data-sharing">Data Sharing</a></li>
+      <li><a href="#storage">Data Storage &amp; Security</a></li>
+      <li><a href="#rights">Your Rights</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#permissions">App Permissions</a></li>
+      <li><a href="#international">International Users &amp; GDPR</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. Introduction -->
+  <div class="card" id="intro">
+    <div class="card-header">
+      <div class="card-icon">👋</div>
+      <h2>1. Introduction</h2>
+    </div>
+    <p>
+      <strong>Logic Grid Master</strong> is an Android logic puzzle game
+      developed by <strong>0xPriya (Independent Developer)</strong>. This
+      Privacy Policy explains what information is collected when you use the
+      app, how it is used, and the rights you have regarding that information.
+    </p>
+    <p>
+      The purpose of this policy is to be fully transparent about our data
+      practices and to comply with Google Play Store policies, the General Data
+      Protection Regulation (GDPR), and the Children's Online Privacy
+      Protection Act (COPPA).
+    </p>
+    <p>
+      By installing or using Logic Grid Master, you acknowledge that you have
+      read and understood this Privacy Policy.
+    </p>
+    <div class="highlight">
+      🔒 <strong>Short version:</strong> We do not collect your name, email
+      address, or any personally identifiable information. No account is
+      required to play.
+    </div>
+  </div>
+
+  <!-- 2. Information We Collect -->
+  <div class="card" id="data-collect">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <h2>2. Information We Collect</h2>
+    </div>
+    <p>
+      We collect only the minimum data necessary to operate the app, fix
+      bugs, and display ads. <strong>No personal data such as your name,
+      email, phone number, location, or contacts is ever collected.</strong>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Data Type</th>
+          <th>Collected By</th>
+          <th>Purpose</th>
+          <th>Personally Identifiable?</th>
+        </tr>
+        <tr>
+          <td>Crash reports &amp; diagnostics</td>
+          <td>Firebase Crashlytics</td>
+          <td>Fix bugs and improve stability</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Anonymous usage events<br><small>(puzzle started, completed, hints used, time taken)</small></td>
+          <td>Firebase Analytics</td>
+          <td>Understand how features are used</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Device type, OS version, language, screen size</td>
+          <td>Firebase / AdMob</td>
+          <td>Compatibility checks and ad targeting</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Advertising ID (GAID)</td>
+          <td>Google AdMob</td>
+          <td>Serve relevant ads; frequency capping</td>
+          <td>No (resettable pseudonymous ID)</td>
+        </tr>
+        <tr>
+          <td>Ad interactions<br><small>(impressions, clicks, rewarded ad completions)</small></td>
+          <td>Google AdMob</td>
+          <td>Show relevant ads; generate revenue</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Puzzle progress, XP, achievements, settings</td>
+          <td>App (stored locally on device only)</td>
+          <td>Save your game progress between sessions</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. How We Use Information -->
+  <div class="card" id="data-use">
+    <div class="card-header">
+      <div class="card-icon">⚙️</div>
+      <h2>3. How We Use Information</h2>
+    </div>
+    <ul>
+      <li><strong>App functionality</strong> — Save puzzle progress, XP, streaks, and achievements locally on your device</li>
+      <li><strong>Crash diagnostics</strong> — Diagnose and fix bugs using anonymised Crashlytics reports</li>
+      <li><strong>Analytics</strong> — Understand which features players use most to guide future improvements</li>
+      <li><strong>Personalisation</strong> — Adapt puzzle difficulty to your skill level using aggregated play statistics (processed locally on device)</li>
+      <li><strong>Advertising</strong> — Display relevant ads via Google AdMob to support the free version of the app</li>
+      <li><strong>In-app review</strong> — Trigger the Play Store review prompt at appropriate milestones (3rd, 10th, 25th puzzle solved)</li>
+    </ul>
+    <p>
+      We never sell, rent, trade, or share your data with third parties
+      for their own marketing or commercial purposes.
+    </p>
+  </div>
+
+  <!-- 4. Third-Party Services -->
+  <div class="card" id="third-party">
+    <div class="card-header">
+      <div class="card-icon">🔗</div>
+      <h2>4. Third-Party Services</h2>
+    </div>
+    <p>
+      Logic Grid Master integrates the following third-party SDKs. Each
+      service operates under its own privacy policy. By using the app you
+      also agree to the relevant policies linked below.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Data They May Collect</th>
+          <th>Privacy Policy</th>
+        </tr>
+        <tr>
+          <td><strong>Google AdMob</strong></td>
+          <td>Banner, interstitial &amp; rewarded ads</td>
+          <td>Advertising ID, device info, IP address, ad interactions</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Firebase Analytics</strong></td>
+          <td>Anonymous usage analytics</td>
+          <td>App events, device type, OS, session duration</td>
+          <td><a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Firebase Crashlytics</strong></td>
+          <td>Crash reporting and diagnostics</td>
+          <td>Stack traces, device state at crash time, OS version</td>
+          <td><a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google Play Billing</strong></td>
+          <td>In-app purchase (Premium upgrade)</td>
+          <td>Purchase token (handled entirely by Google Play)</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google Play In-App Review</strong></td>
+          <td>Prompt user to rate the app on Play Store</td>
+          <td>No additional data collected by us</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="highlight">
+      ℹ️ All third-party SDKs are supplied by Google LLC. Their data
+      processing is governed by Google's privacy framework and standard
+      contractual clauses.
+    </div>
+  </div>
+
+  <!-- 5. Advertising -->
+  <div class="card" id="advertising">
+    <div class="card-header">
+      <div class="card-icon">📢</div>
+      <h2>5. Advertising</h2>
+    </div>
+    <p>
+      The free version of Logic Grid Master displays ads served by
+      <strong>Google AdMob</strong>. Ads help us offer the app at no cost.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Ad Type</th>
+          <th>Where It Appears</th>
+          <th>Mandatory?</th>
+        </tr>
+        <tr>
+          <td>Banner Ad</td>
+          <td>Home screen and puzzle list</td>
+          <td>Yes (free version)</td>
+        </tr>
+        <tr>
+          <td>Interstitial Ad</td>
+          <td>After puzzle completion</td>
+          <td>Yes (free version)</td>
+        </tr>
+        <tr>
+          <td>Rewarded Ad</td>
+          <td>Hint preview dialog — player's choice</td>
+          <td>No — fully optional</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>
+      AdMob may use your device's <strong>Google Advertising ID (GAID)</strong>
+      to serve <strong>personalised ads</strong> based on your interests.
+    </p>
+    <p>
+      <strong>To opt out of personalised ads:</strong><br/>
+      Android Settings → Google → Ads → <em>Opt out of Ads Personalisation</em>
+    </p>
+    <p>
+      <strong>To reset your Advertising ID:</strong><br/>
+      Android Settings → Google → Ads → <em>Reset advertising ID</em>
+    </p>
+    <div class="highlight">
+      💎 Purchasing the <strong>Premium</strong> upgrade removes all ads
+      permanently. No ad SDK calls are made once Premium is active.
+    </div>
+  </div>
+
+  <!-- 6. Data Sharing -->
+  <div class="card" id="data-sharing">
+    <div class="card-header">
+      <div class="card-icon">🤝</div>
+      <h2>6. Data Sharing</h2>
+    </div>
+    <p>
+      We do <strong>not sell, rent, or trade</strong> any user data to
+      third parties. Data is only shared in the following limited circumstances:
+    </p>
+    <ul>
+      <li><strong>Third-party SDKs</strong> — Firebase and AdMob receive anonymised technical data as described in Section 4, solely for the purposes stated</li>
+      <li><strong>Legal requirements</strong> — We may disclose data if required to do so by law, court order, or governmental authority</li>
+      <li><strong>Business transfer</strong> — In the unlikely event of a merger or acquisition, user data would be transferred only under equivalent privacy protections</li>
+    </ul>
+    <div class="highlight-warn">
+      ⚠️ Under no circumstances is your data sold to advertisers, data
+      brokers, or any commercial third party.
+    </div>
+  </div>
+
+  <!-- 7. Data Storage & Security -->
+  <div class="card" id="storage">
+    <div class="card-header">
+      <div class="card-icon">💾</div>
+      <h2>7. Data Storage &amp; Security</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>Where Stored</th>
+          <th>Encryption</th>
+          <th>Retention</th>
+        </tr>
+        <tr>
+          <td>Puzzle progress, XP, achievements</td>
+          <td>Local device — Room (SQLite)</td>
+          <td>Android filesystem encryption</td>
+          <td>Until app is uninstalled</td>
+        </tr>
+        <tr>
+          <td>App settings (theme, language)</td>
+          <td>Local device — DataStore</td>
+          <td>Android filesystem encryption</td>
+          <td>Until app is uninstalled</td>
+        </tr>
+        <tr>
+          <td>Crash reports</td>
+          <td>Firebase servers (Google Cloud)</td>
+          <td>TLS in transit; encrypted at rest</td>
+          <td>90 days (Google default)</td>
+        </tr>
+        <tr>
+          <td>Analytics events</td>
+          <td>Firebase servers (Google Cloud)</td>
+          <td>TLS in transit; encrypted at rest</td>
+          <td>90 days (Google default)</td>
+        </tr>
+        <tr>
+          <td>Ad interaction data</td>
+          <td>Google AdMob servers</td>
+          <td>TLS in transit; encrypted at rest</td>
+          <td>Per Google AdMob policy</td>
+        </tr>
+      </table>
+    </div>
+
+    <ul>
+      <li>All local data is protected by Android's built-in filesystem encryption on supported devices</li>
+      <li>All network communication uses TLS (HTTPS) — no data is transmitted in plain text</li>
+      <li>Firebase data is stored on Google Cloud Platform infrastructure with industry-standard security controls</li>
+      <li>Uninstalling the app permanently deletes all locally stored data</li>
+    </ul>
+  </div>
+
+  <!-- 8. User Rights -->
+  <div class="card" id="rights">
+    <div class="card-header">
+      <div class="card-icon">✅</div>
+      <h2>8. Your Rights</h2>
+    </div>
+    <p>Depending on your region, you may have the following rights:</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Right</th>
+          <th>How to Exercise It</th>
+        </tr>
+        <tr>
+          <td><strong>Access your data</strong></td>
+          <td>Contact us at <a href="mailto:0xsupports@gmail.com">0xsupports@gmail.com</a> — we will provide details of what anonymised data Firebase holds</td>
+        </tr>
+        <tr>
+          <td><strong>Delete your data</strong></td>
+          <td>Uninstall the app (removes local data). Email us to request Firebase data deletion</td>
+        </tr>
+        <tr>
+          <td><strong>Opt out of personalised ads</strong></td>
+          <td>Android Settings → Google → Ads → Opt out of Ads Personalisation</td>
+        </tr>
+        <tr>
+          <td><strong>Reset Advertising ID</strong></td>
+          <td>Android Settings → Google → Ads → Reset advertising ID</td>
+        </tr>
+        <tr>
+          <td><strong>Disable Analytics</strong></td>
+          <td>Android Settings → Apps → Logic Grid Master → Permissions — or contact us to opt out</td>
+        </tr>
+        <tr>
+          <td><strong>Data portability</strong></td>
+          <td>Contact us — we can provide your anonymised analytics data in a readable format</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 9. Children's Privacy -->
+  <div class="card" id="children">
+    <div class="card-header">
+      <div class="card-icon">👶</div>
+      <h2>9. Children's Privacy</h2>
+    </div>
+    <p>
+      Logic Grid Master is rated <strong>Everyone (E)</strong> on Google Play
+      and is suitable for all ages including children.
+    </p>
+    <ul>
+      <li>We do <strong>not knowingly collect personal information from children under 13</strong> (COPPA) or under 16 (GDPR)</li>
+      <li>No account creation, chat, social features, or forms that could capture a child's personal data are present in the app</li>
+      <li>Ads displayed comply with Google's <a href="https://support.google.com/admob/answer/6223431" target="_blank">Families Policy</a> requirements</li>
+      <li>If a parent or guardian believes their child has provided personal information, please contact us immediately at <a href="mailto:0xsupports@gmail.com">0xsupports@gmail.com</a> and we will delete it promptly</li>
+    </ul>
+    <div class="highlight">
+      🧒 This app complies with the <strong>Children's Online Privacy
+      Protection Act (COPPA)</strong> and the <strong>EU GDPR</strong>
+      provisions relating to children's data.
+    </div>
+  </div>
+
+  <!-- 10. App Permissions -->
+  <div class="card" id="permissions">
+    <div class="card-header">
+      <div class="card-icon">🔐</div>
+      <h2>10. App Permissions</h2>
+    </div>
+    <p>
+      Logic Grid Master requests only the permissions strictly necessary to
+      operate. No sensitive permissions (camera, microphone, contacts,
+      location, storage) are requested.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Permission</th>
+          <th>Why It's Needed</th>
+          <th>Sensitive?</th>
+        </tr>
+        <tr>
+          <td><code>INTERNET</code></td>
+          <td>Load ads (AdMob), send crash reports (Crashlytics), send analytics events (Firebase)</td>
+          <td><span class="perm-tag">Normal</span></td>
+        </tr>
+        <tr>
+          <td><code>ACCESS_NETWORK_STATE</code></td>
+          <td>Check connectivity before making network requests for ads</td>
+          <td><span class="perm-tag">Normal</span></td>
+        </tr>
+        <tr>
+          <td><code>BILLING</code></td>
+          <td>Process the Premium in-app purchase via Google Play Billing</td>
+          <td><span class="perm-tag">Normal</span></td>
+        </tr>
+        <tr>
+          <td><code>AD_ID</code> (Android 13+)</td>
+          <td>Read the resettable Google Advertising ID for ad personalisation (user can opt out)</td>
+          <td><span class="perm-tag">Normal</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="highlight">
+      ℹ️ We do <strong>not</strong> request permissions for camera,
+      microphone, contacts, location, call logs, SMS, or device storage.
+    </div>
+  </div>
+
+  <!-- 11. International Users & GDPR -->
+  <div class="card" id="international">
+    <div class="card-header">
+      <div class="card-icon">🌍</div>
+      <h2>11. International Users &amp; GDPR</h2>
+    </div>
+    <p>
+      Logic Grid Master is available globally. If you are located in the
+      European Economic Area (EEA), United Kingdom, or Switzerland, the
+      following additional rights apply to you under the
+      <strong>General Data Protection Regulation (GDPR)</strong>:
+    </p>
+    <ul>
+      <li><strong>Legal basis for processing</strong> — Data is processed on the basis of <em>legitimate interests</em> (crash reporting, analytics) and <em>consent</em> (personalised ads via AdMob)</li>
+      <li><strong>Right to object</strong> — You may object to processing based on legitimate interests at any time</li>
+      <li><strong>Right to restriction</strong> — You may request that we restrict processing of your data</li>
+      <li><strong>Right to lodge a complaint</strong> — You may lodge a complaint with your local Data Protection Authority (DPA)</li>
+      <li><strong>Data transfers</strong> — Firebase and AdMob data is processed on Google Cloud servers, which operate under Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+    </ul>
+    <p>
+      For California residents: we comply with the
+      <strong>California Consumer Privacy Act (CCPA)</strong>. We do not
+      sell personal information. You may exercise your rights by contacting
+      us at the email below.
+    </p>
+  </div>
+
+  <!-- 12. Changes -->
+  <div class="card" id="changes">
+    <div class="card-header">
+      <div class="card-icon">📝</div>
+      <h2>12. Changes to This Policy</h2>
+    </div>
+    <p>
+      We may update this Privacy Policy from time to time to reflect changes
+      in the app, legal requirements, or third-party services.
+    </p>
+    <ul>
+      <li>The <strong>"Last updated"</strong> date at the top of this page will always reflect the most recent revision</li>
+      <li>For <strong>significant changes</strong> (e.g. collecting new categories of data), we will notify users via an in-app notice on the next app launch</li>
+      <li>For <strong>minor changes</strong>, continued use of the app after the updated date constitutes acceptance</li>
+    </ul>
+    <p>
+      We encourage you to review this policy periodically to stay informed
+      about how we protect your information.
+    </p>
+  </div>
+
+  <!-- 13. Contact -->
+  <div class="contact-card" id="contact">
+    <h2>📬 13. Contact Us</h2>
+    <p>
+      If you have any questions, concerns, or requests regarding this Privacy
+      Policy or our data practices — including data access, deletion, or
+      GDPR/CCPA requests — please contact us:
+    </p>
+    <p style="margin-top:14px; line-height:2;">
+      <strong>Developer:</strong> 0xPriya (Independent Developer)<br/>
+      <strong>Email:</strong> <a href="mailto:0xsupports@gmail.com">0xsupports@gmail.com</a>
+    </p>
+    <p style="margin-top:12px; font-size:0.88rem; opacity:0.75;">
+      We aim to respond to all privacy enquiries within <strong>5 business days</strong>.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Logic Grid Master · 0xPriya (Independent Developer)</p>
+  <p style="margin-top:6px;">
+    <a href="mailto:0xsupports@gmail.com">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
